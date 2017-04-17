@@ -9,5 +9,19 @@
  * @author ABC
  */
 public class Random {
-    
+
+    /**
+     *
+     */
+    public Random() {
+        // TODO Auto-generated constructor stub
+    }
+
+    /**
+     *
+     */
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Random acak = new Random();
+    }
 }
