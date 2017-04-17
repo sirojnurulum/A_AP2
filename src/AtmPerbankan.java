@@ -11,7 +11,7 @@
 public class AtmPerbankan {
 
     private Nasabah nasabahAtm;
-    private byte isiBox;
+    private short isiBox;
     private String passwordAtm = "1234";
 
     public AtmPerbankan() {
@@ -29,12 +29,12 @@ public class AtmPerbankan {
         return nasabahAtm;
     }
 
-    public void setIsiBox(byte isiBox) {
+    public void setIsiBox(short isiBox) {
         // mengisi nilai isibox(merupakan jumlah lembar uang yang ada dalam ATM)
         this.isiBox = isiBox;
     }
 
-    public byte getIsiBox() {
+    public int getIsiBox() {
         // mengembalikan nilai isibox
         return isiBox;
     }
@@ -54,8 +54,8 @@ public class AtmPerbankan {
         // lembar uang.
         String kembali;
         if (cekLipat(nominal) == true) {
-            byte jumBar1 = konversiInAtm(nominal);
-            byte jumBar2 = (byte) (isiBox + jumBar1);
+            short jumBar1 = konversiInAtm(nominal);
+            short jumBar2 = (short) (isiBox + jumBar1);
             setIsiBox(jumBar2);
             kembali = "pengisian Box sukses";
         } else {
@@ -77,7 +77,7 @@ public class AtmPerbankan {
             } else {
                 int valueBox1 = getIsiBox() * 50000;
                 int valueBox2 = valueBox1 - nominalNas;
-                byte jumBar1 = konversiInAtm(valueBox2);
+                short jumBar1 = konversiInAtm(valueBox2);
                 setIsiBox(jumBar1);
                 nasabahAtm.setSaldo(nasabahAtm.getSaldo() - nominalNas);
                 // pengambilan uang sukses = 3
@@ -141,8 +141,8 @@ public class AtmPerbankan {
         }
     }
 
-    public byte konversiInAtm(int nominal) {
-        byte jumBar = (byte) (nominal / 50000);
+    public short konversiInAtm(int nominal) {
+        short jumBar = (short) (nominal / 50000);
         return jumBar;
     }
 
